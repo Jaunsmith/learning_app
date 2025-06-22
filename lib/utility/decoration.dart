@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:learning_app/utility/app_Colors.dart';
 
 BoxDecoration decoration({
-  Color color = AppColors.primaryElement,
+  Color decoColor = AppColors.primaryElement,
   double radius = 15,
   double spreadR = 1,
   double blurR = 2,
+  bool border = false,
 }) {
   return BoxDecoration(
-    color: color,
+    color: decoColor,
     borderRadius: BorderRadius.circular(radius),
+    border: border
+        ? Border.all(color: AppColors.primaryFourElementText)
+        : Border.all(color: Colors.transparent),
     boxShadow: [
       BoxShadow(
         color: Colors.grey.withOpacity(0.1),

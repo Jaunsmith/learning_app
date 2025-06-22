@@ -16,7 +16,7 @@ class AppColors {
   static const Color primaryElement = Color.fromARGB(255, 61, 61, 216);
 
   /// main text color black
-  static const Color primaryText = Color.fromARGB(255, 0, 0, 0);
+  static const Color primaryText = Color.fromARGB(226, 48, 47, 47);
   // video background color
   static const Color primary_bg = Color.fromARGB(210, 32, 47, 62);
 
