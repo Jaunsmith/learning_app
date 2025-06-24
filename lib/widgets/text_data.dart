@@ -32,11 +32,12 @@ Widget subTextNormal(
 Widget sigIn14Text(
   String textData, {
   Color color = AppColors.primaryThreeElementText,
+  TextAlign textAlign = TextAlign.center,
   bool textUnderLine = false,
 }) {
   return Text(
     textData,
-    textAlign: TextAlign.center,
+    textAlign: textAlign,
     style: TextStyle(
       fontSize: 14.sp,
       fontWeight: FontWeight.bold,

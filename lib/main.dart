@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:learning_app/utility/app_bar_theme.dart';
 import 'package:learning_app/utility/app_route.dart';
 
 void main() {
@@ -19,10 +20,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          ),
-          //home: OnBoardingScreen(),
+          theme: AppTheme.appThemeData,
+          // home: SignInScreen(),
           initialRoute: '/',
           routes: appRoute(context),
         );

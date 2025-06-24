@@ -10,9 +10,10 @@ Widget appButtonWidget({
   Color textColor = AppColors.primaryBackground,
   Color containerColor = AppColors.primaryElement,
   bool border = false,
+  VoidCallback? function,
 }) {
   return GestureDetector(
-    onTap: () {},
+    onTap: function,
     child: Container(
       margin: EdgeInsets.symmetric(horizontal: 10.w),
       width: double.maxFinite,

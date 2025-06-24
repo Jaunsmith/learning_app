@@ -1,23 +1,24 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:learning_app/screens/signin/widgets/login_options.dart';
-import 'package:learning_app/screens/signin/widgets/sign_in_app_bar.dart';
 import 'package:learning_app/utility/app_Colors.dart';
+import 'package:learning_app/widgets/app_bar_data.dart';
 import 'package:learning_app/widgets/app_button_widget.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+import '../../widgets/app_textField_data.dart';
+
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController mailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: sigInAppBar(),
+      appBar: appBarData('Login'),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,14 +30,13 @@ class SignIn extends StatelessWidget {
                   hintText: 'Enter your email',
                   headerText: 'Email',
                   iconName: Icons.person,
-                  controller: mailController,
                 ),
                 SizedBox(height: 30.h),
                 appTextField(
                   hintText: 'Enter Password',
                   headerText: 'Password',
                   iconName: Icons.lock,
-                  controller: passwordController,
+
                   obscure: true,
                 ),
                 mailSignIn(
@@ -45,10 +45,18 @@ class SignIn extends StatelessWidget {
                   textUnderLine: true,
                 ),
                 SizedBox(height: 100.h),
-                appButtonWidget(text: 'Login'),
+                appButtonWidget(
+                  text: 'Login',
+                  function: () {
+                    if (kDebugMode) {
+                      print('Login clicked');
+                    }
+                  },
+                ),
                 SizedBox(height: 20.h),
                 appButtonWidget(
                   text: 'SignUp',
+                  function: () => Navigator.pushNamed(context, '/signUp'),
                   containerColor: AppColors.primaryBackground,
                   textColor: AppColors.primaryText,
                   border: true,
