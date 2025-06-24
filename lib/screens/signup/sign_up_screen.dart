@@ -32,7 +32,7 @@ class SignUpScreen extends ConsumerWidget {
                   child: sigIn14Text('Enter your details below & free sign up'),
                 ),
                 SizedBox(height: 50.h),
-                appTextField(
+                AppTextFieldData(
                   iconName: Icons.person,
                   headerText: 'Username',
                   function: (value) => ref
@@ -40,7 +40,7 @@ class SignUpScreen extends ConsumerWidget {
                       .userNameUpdate(value),
                 ),
                 SizedBox(height: 20.h),
-                appTextField(
+                AppTextFieldData(
                   iconName: Icons.email,
                   headerText: 'Email',
                   function: (value) => ref
@@ -48,19 +48,19 @@ class SignUpScreen extends ConsumerWidget {
                       .userEmailUpdate(value),
                 ),
                 SizedBox(height: 20.h),
-                appTextField(
+                AppTextFieldData(
                   iconName: Icons.lock,
                   headerText: 'Password',
-                  obscure: true,
+                  isPassword: true,
                   function: (value) => ref
                       .read(signUpNotifierProvider.notifier)
                       .userPasswordUpdate(value),
                 ),
                 SizedBox(height: 20.h),
-                appTextField(
+                AppTextFieldData(
                   iconName: Icons.lock,
                   headerText: 'Confirm Password',
-                  obscure: true,
+                  isPassword: true,
                   function: (value) => ref
                       .read(signUpNotifierProvider.notifier)
                       .userConfirmPasswordUpdate(value),

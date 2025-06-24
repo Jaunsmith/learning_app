@@ -26,18 +26,18 @@ class SignInScreen extends StatelessWidget {
                 loginOptions(),
                 Center(child: mailSignIn(text: 'or use your email to login')),
                 SizedBox(height: 40.h),
-                appTextField(
+                AppTextFieldData(
                   hintText: 'Enter your email',
                   headerText: 'Email',
                   iconName: Icons.person,
                 ),
                 SizedBox(height: 30.h),
-                appTextField(
+                AppTextFieldData(
                   hintText: 'Enter Password',
                   headerText: 'Password',
                   iconName: Icons.lock,
 
-                  obscure: true,
+                  isPassword: true,
                 ),
                 mailSignIn(
                   text: 'Forgot password?',
