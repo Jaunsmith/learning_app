@@ -38,6 +38,7 @@ dependencies:
   dots_indicator: ^4.0.1
   riverpod_generator: ^2.6.5
   flutter_screenutil: ^5.9.3
+  fluttertoast: ^8.2.12
 
 dev_dependencies:
   flutter_test:

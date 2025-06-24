@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'Learning App',
           theme: AppTheme.appThemeData,
           // home: SignInScreen(),
           initialRoute: '/',

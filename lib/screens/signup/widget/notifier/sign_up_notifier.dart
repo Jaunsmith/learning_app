@@ -19,4 +19,14 @@ class SignUpNotifier extends _$SignUpNotifier {
     state = state.copyWith(email: dataMail);
     print(state.email);
   }
+
+  void userPasswordUpdate(String dataPass) {
+    state = state.copyWith(password: dataPass);
+    print(state.email);
+  }
+
+  void userConfirmPasswordUpdate(String dataConfirm) {
+    state = state.copyWith(confirmPassword: dataConfirm);
+    print(state.email);
+  }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:learning_app/screens/signup/widget/notifier/sign_up_notifier.dart';
+import 'package:learning_app/screens/signup/widget/sign_up_controller.dart';
 import 'package:learning_app/utility/app_Colors.dart';
 import 'package:learning_app/widgets/text_data.dart';
 
@@ -51,12 +52,18 @@ class SignUpScreen extends ConsumerWidget {
                   iconName: Icons.lock,
                   headerText: 'Password',
                   obscure: true,
+                  function: (value) => ref
+                      .read(signUpNotifierProvider.notifier)
+                      .userPasswordUpdate(value),
                 ),
                 SizedBox(height: 20.h),
                 appTextField(
                   iconName: Icons.lock,
                   headerText: 'Confirm Password',
                   obscure: true,
+                  function: (value) => ref
+                      .read(signUpNotifierProvider.notifier)
+                      .userConfirmPasswordUpdate(value),
                 ),
                 SizedBox(height: 20.h),
                 Row(
@@ -87,6 +94,7 @@ class SignUpScreen extends ConsumerWidget {
                   function: () {
                     if (kDebugMode) {
                       print('Sign Up is clicked');
+                      SignUpController(ref: ref).signUpAuthentication();
                     }
                   },
                 ),
