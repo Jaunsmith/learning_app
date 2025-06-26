@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:learning_app/screens/signup/widget/notifier/sign_up_notifier.dart';
+import 'package:learning_app/utility/loader/app_loader_icon.dart';
 
 import '../../../widgets/pop_up_notification.dart';
 
@@ -13,12 +14,13 @@ class SignUpController {
 
   Future<void> signUpAuthentication() async {
     var state = ref.read(signUpNotifierProvider);
-    var navigator = Navigator.pop(ref.context);
+    var navigator = Navigator.of(ref.context);
 
     String name = state.userName;
     String email = state.email;
     String password = state.password;
     String confirmPassword = state.confirmPassword;
+    bool isChecked = state.isChecked;
 
     if (state.userName.isEmpty || name.isEmpty) {
       popUpNotification('Please enter user name');
@@ -54,6 +56,13 @@ class SignUpController {
       return;
     }
 
+    if (isChecked == false || state.isChecked == false) {
+      popUpNotification('Please kindly agree to the terms and condition');
+      return;
+    }
+
+    // this help us to update the state of the bool after the validation has been passed...
+    ref.read(appLoaderIconProvider.notifier).setLoaderValue(true);
     try {
       final userCredentials = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -66,12 +75,22 @@ class SignUpController {
         await userCredentials.user?.sendEmailVerification();
         await userCredentials.user?.updateDisplayName(name);
         popUpNotification('Email verification has been sent to your mail');
-        navigator;
+        navigator.pop();
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        popUpNotification('The password is too weak');
+      } else if (e.code == 'email-already-in-use') {
+        popUpNotification('Email already exit');
+      } else if (e.code == 'user-not-found') {
+        popUpNotification('Email not found please kindly Sign Up');
       }
     } catch (e) {
       if (kDebugMode) {
         print(e);
       }
     }
+    ref.watch(appLoaderIconProvider.notifier).setLoaderValue(false);
+    ref.watch(signUpNotifierProvider.notifier).userIsCheckedUpdate(false);
   }
 }

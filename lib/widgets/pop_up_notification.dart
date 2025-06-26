@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 //[Sting message=''] this means positional optional parameter...
-popUpNotification(
+Future<bool?> popUpNotification(
   String message, {
   Color bckColor = Colors.blue,
   Color textColor = Colors.white,
