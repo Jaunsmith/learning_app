@@ -5,6 +5,7 @@ import 'package:learning_app/screens/signin/widgets/login_options.dart';
 import 'package:learning_app/screens/signin/widgets/notifier/sign_in_notifier.dart';
 import 'package:learning_app/screens/signin/widgets/sigin_controller.dart';
 import 'package:learning_app/utility/app_Colors.dart';
+import 'package:learning_app/utility/constant/app_constant.dart';
 import 'package:learning_app/utility/loader/app_loader_icon.dart';
 import 'package:learning_app/widgets/app_bar_data.dart';
 import 'package:learning_app/widgets/app_button_widget.dart';
@@ -49,6 +50,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       ),
                       SizedBox(height: 40.h),
                       AppTextFieldData(
+                        textEditingController: _signInController.mailController,
                         hintText: 'Enter your email',
                         headerText: 'Email',
                         iconName: Icons.person,
@@ -57,6 +59,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       ),
                       SizedBox(height: 30.h),
                       AppTextFieldData(
+                        textEditingController:
+                            _signInController.passwordController,
                         hintText: 'Enter Password',
                         function: (value) =>
                             readData.userPasswordSignInUpdate(value),
@@ -79,7 +83,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       SizedBox(height: 20.h),
                       appButtonWidget(
                         text: 'SignUp',
-                        function: () => Navigator.pushNamed(context, '/signUp'),
+                        function: () => Navigator.pushNamed(
+                          context,
+                          AppConstant.USER_SIGN_IN_PAGE,
+                        ),
                         containerColor: AppColors.primaryBackground,
                         textColor: AppColors.primaryText,
                         border: true,

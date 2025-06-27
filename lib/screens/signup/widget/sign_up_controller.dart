@@ -80,10 +80,13 @@ class SignUpController {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         popUpNotification('The password is too weak');
+        return;
       } else if (e.code == 'email-already-in-use') {
         popUpNotification('Email already exit');
+        return;
       } else if (e.code == 'user-not-found') {
         popUpNotification('Email not found please kindly Sign Up');
+        return;
       }
     } catch (e) {
       if (kDebugMode) {

@@ -13,6 +13,7 @@ class AppTextFieldData extends StatefulWidget {
     this.hintText,
     required this.iconName,
     this.borderColor = AppColors.primaryFourElementText,
+    this.textEditingController,
   });
 
   final String? headerText;
@@ -21,6 +22,7 @@ class AppTextFieldData extends StatefulWidget {
   final String? hintText;
   final IconData iconName;
   final Color borderColor;
+  final TextEditingController? textEditingController;
 
   @override
   State<AppTextFieldData> createState() => _AppTextFieldDataState();
@@ -43,6 +45,7 @@ class _AppTextFieldDataState extends State<AppTextFieldData> {
             color: AppColors.primaryBackground,
           ),
           child: TextField(
+            controller: widget.textEditingController,
             onChanged: (value) {
               widget.function!(value);
             },
