@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
           // home: SignInScreen(),
           //initialRoute: AppConstant.USER_SIGN_HOME_PAGE,
           //routes: AppRoute.appRouteList(context),
+          // with the ongenerate route it help us to auto detect the route we are and also be able to do alot of checking and fo aa lot of things
           onGenerateRoute: (settings) =>
               AppRoute.generateRouteSettings(settings),
         );

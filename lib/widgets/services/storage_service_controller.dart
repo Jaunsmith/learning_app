@@ -1,3 +1,4 @@
+import 'package:learning_app/utility/constant/app_constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageServiceController {
@@ -10,5 +11,20 @@ class StorageServiceController {
 
   Future<bool> setString(String key, String value) async {
     return await _sharedPreferences.setString(key, value);
+  }
+
+  Future<bool> setBool(String key, bool value) async {
+    return await _sharedPreferences.setBool(key, value);
+  }
+
+  // this help us to know if we already open the application before or not ...
+  bool getDevice() {
+    return _sharedPreferences.getBool(AppConstant.USER_STORAGE_KEY) ?? false;
+  }
+
+  bool isLoggedIn() {
+    return _sharedPreferences.getString(AppConstant.USER_PROFILE_KEY) != null
+        ? true
+        : false;
   }
 }

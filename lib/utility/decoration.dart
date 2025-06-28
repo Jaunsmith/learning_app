@@ -7,10 +7,11 @@ BoxDecoration decoration({
   double spreadR = 1,
   double blurR = 2,
   bool border = false,
+  BorderRadiusGeometry? borderRadius,
 }) {
   return BoxDecoration(
     color: decoColor,
-    borderRadius: BorderRadius.circular(radius),
+    borderRadius: borderRadius ?? BorderRadius.circular(radius),
     border: border
         ? Border.all(color: AppColors.primaryFourElementText)
         : Border.all(color: Colors.transparent),

@@ -85,7 +85,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                         text: 'SignUp',
                         function: () => Navigator.pushNamed(
                           context,
-                          AppConstant.USER_SIGN_IN_PAGE,
+                          AppConstant.USER_SIGN_UP_PAGE,
                         ),
                         containerColor: AppColors.primaryBackground,
                         textColor: AppColors.primaryText,

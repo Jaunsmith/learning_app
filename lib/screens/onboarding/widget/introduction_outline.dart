@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:learning_app/utility/constant/app_constant.dart';
+import 'package:learning_app/widgets/general%20file/global_file.dart';
 import 'package:learning_app/widgets/text_data.dart';
 
 import '../../../utility/decoration.dart';
@@ -52,6 +54,10 @@ Widget nextButton(
           curve: Curves.linear,
         );
       } else {
+        GlobalFile.storageServiceController.setBool(
+          AppConstant.USER_STORAGE_KEY,
+          true,
+        );
         Navigator.pushNamed(context, '/signIn');
       }
     },
