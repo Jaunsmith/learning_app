@@ -6,6 +6,7 @@ import 'package:learning_app/screens/signup/widget/notifier/sign_up_notifier.dar
 import 'package:learning_app/utility/loader/app_loader_icon.dart';
 
 import '../../../widgets/pop_up_notification.dart';
+import '../repo/sign_up_repo.dart';
 
 class SignUpController {
   late WidgetRef ref;
@@ -64,8 +65,10 @@ class SignUpController {
     // this help us to update the state of the bool after the validation has been passed...
     ref.read(appLoaderIconProvider.notifier).setLoaderValue(true);
     try {
-      final userCredentials = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+      final userCredentials = await SignUpRepo.signUpAuhthentication(
+        email: email,
+        password: password,
+      );
 
       if (kDebugMode) {
         print(userCredentials);

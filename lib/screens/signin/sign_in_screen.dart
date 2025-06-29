@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:learning_app/screens/signin/controller/sigin_controller.dart';
 import 'package:learning_app/screens/signin/widgets/login_options.dart';
 import 'package:learning_app/screens/signin/widgets/notifier/sign_in_notifier.dart';
-import 'package:learning_app/screens/signin/widgets/sigin_controller.dart';
 import 'package:learning_app/utility/app_Colors.dart';
 import 'package:learning_app/utility/constant/app_constant.dart';
 import 'package:learning_app/utility/loader/app_loader_icon.dart';
@@ -23,9 +23,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   late SignInController _signInController;
 
   @override
-  void initState() {
-    _signInController = SignInController(ref: ref);
-    super.initState();
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    _signInController = SignInController();
+    super.didChangeDependencies();
   }
 
   @override
@@ -77,7 +78,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                       appButtonWidget(
                         text: 'Login',
                         function: () {
-                          _signInController.loginAuthentication();
+                          _signInController.loginAuthentication(ref);
                         },
                       ),
                       SizedBox(height: 20.h),

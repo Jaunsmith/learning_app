@@ -10,6 +10,8 @@ Future<void> main() async {
   runApp(ProviderScope(child: const MyApp()));
 }
 
+final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
+          navigatorKey: navKey,
           debugShowCheckedModeBanner: false,
           title: 'Learning App',
           theme: AppTheme.appThemeData,
