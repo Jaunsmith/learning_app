@@ -31,6 +31,6 @@ Widget mailSignIn({
 }) {
   return TextButton(
     onPressed: () {},
-    child: sigIn14Text(text, color: color, textUnderLine: textUnderLine),
+    child: dynamicTextData(text, color: color, textUnderLine: textUnderLine),
   );
 }

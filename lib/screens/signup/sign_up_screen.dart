@@ -32,7 +32,7 @@ class SignUpScreen extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Center(
-                        child: sigIn14Text(
+                        child: dynamicTextData(
                           'Enter your details below & free sign up',
                         ),
                       ),
@@ -85,11 +85,11 @@ class SignUpScreen extends ConsumerWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              sigIn14Text(
+                              dynamicTextData(
                                 'By creating an account you have agree',
                                 textAlign: TextAlign.start,
                               ),
-                              sigIn14Text(
+                              dynamicTextData(
                                 'with our terms and condition',
                                 textAlign: TextAlign.start,
                               ),

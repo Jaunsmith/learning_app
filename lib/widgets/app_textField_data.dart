@@ -14,6 +14,9 @@ class AppTextFieldData extends StatefulWidget {
     required this.iconName,
     this.borderColor = AppColors.primaryFourElementText,
     this.textEditingController,
+    this.height,
+    this.weight,
+    this.headerNeeded = false,
   });
 
   final String? headerText;
@@ -23,6 +26,9 @@ class AppTextFieldData extends StatefulWidget {
   final IconData iconName;
   final Color borderColor;
   final TextEditingController? textEditingController;
+  final double? height;
+  final double? weight;
+  final bool headerNeeded;
 
   @override
   State<AppTextFieldData> createState() => _AppTextFieldDataState();
@@ -35,11 +41,13 @@ class _AppTextFieldDataState extends State<AppTextFieldData> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        subTextNormal(widget.headerText!),
+        widget.headerNeeded
+            ? subTextNormal(widget.headerText ?? '')
+            : Container(),
         SizedBox(height: 5.h),
         Container(
-          width: double.maxFinite,
-          height: 50.h,
+          width: widget.weight ?? double.maxFinite,
+          height: widget.height ?? 50.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: AppColors.primaryBackground,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/screens/home/home_screen.dart';
 import 'package:learning_app/utility/app_Colors.dart';
 
 BottomNavigationBarItem bottomBars({
@@ -15,7 +16,7 @@ BottomNavigationBarItem bottomBars({
 
 Widget appScreens(int index) {
   List<Widget> screens = [
-    Container(child: Center(child: Text('1'))),
+    HomeScreen(),
     Container(child: Center(child: Text('2'))),
     Container(child: Center(child: Text('3'))),
     Container(child: Center(child: Text('4'))),

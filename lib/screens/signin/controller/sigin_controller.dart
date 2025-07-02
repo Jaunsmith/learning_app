@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +9,10 @@ import 'package:learning_app/screens/signin/repo/sign_in_repo.dart';
 import 'package:learning_app/screens/signin/widgets/notifier/sign_in_notifier.dart';
 import 'package:learning_app/utility/constant/app_constant.dart';
 import 'package:learning_app/utility/loader/app_loader_icon.dart';
-import 'package:learning_app/widgets/entities/entities.dart';
 import 'package:learning_app/widgets/general%20file/global_file.dart';
 import 'package:learning_app/widgets/pop_up_notification.dart';
+
+import '../../../models/user.dart';
 
 class SignInController {
   SignInController();
@@ -113,11 +116,11 @@ class SignInController {
       // Trying to get the user data to determine the status if logged in ...
       GlobalFile.storageServiceController.setString(
         AppConstant.USER_PROFILE_KEY,
-        'value',
+        jsonEncode({"name": "deji", "email": "owovickky@mail.com"}),
       );
       GlobalFile.storageServiceController.setString(
         AppConstant.USER_TOEKN_KEY,
-        'value',
+        'valueUser',
       );
       navKey.currentState?.pushNamedAndRemoveUntil(
         AppConstant.USER_SIGN_DAHSBOARD_PAGE,

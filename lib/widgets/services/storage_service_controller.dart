@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:learning_app/models/user.dart';
 import 'package:learning_app/utility/constant/app_constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -26,5 +29,21 @@ class StorageServiceController {
     return _sharedPreferences.getString(AppConstant.USER_PROFILE_KEY) != null
         ? true
         : false;
+  }
+
+  // This is to get the data stored in the local memory...
+
+  String getStoredString(String key) {
+    return _sharedPreferences.getString(key) ?? '';
+  }
+
+  UserProfile getUserProfile() {
+    var userData =
+        _sharedPreferences.getString(AppConstant.USER_PROFILE_KEY) ?? '';
+    var userJsonData = jsonDecode(userData);
+
+    var userProfile = UserProfile.fromJson(userJsonData);
+
+    return userProfile;
   }
 }

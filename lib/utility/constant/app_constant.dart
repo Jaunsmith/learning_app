@@ -9,5 +9,6 @@ class AppConstant {
   static const String USER_SIGN_HOME_PAGE = '/';
   static const String USER_SIGN_IN_PAGE = '/signIn';
   static const String USER_SIGN_UP_PAGE = '/signUp';
-  static const String USER_SIGN_DAHSBOARD_PAGE = '/home';
+  static const String USER_SIGN_DAHSBOARD_PAGE = '/navBarScreen';
+  static const String USER_HOME_PAGE = '/home';
 }

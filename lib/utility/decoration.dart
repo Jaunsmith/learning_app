@@ -3,6 +3,7 @@ import 'package:learning_app/utility/app_Colors.dart';
 
 BoxDecoration decoration({
   Color decoColor = AppColors.primaryElement,
+  Color borderColor = AppColors.primaryFourElementText,
   double radius = 15,
   double spreadR = 1,
   double blurR = 2,
@@ -13,7 +14,7 @@ BoxDecoration decoration({
     color: decoColor,
     borderRadius: borderRadius ?? BorderRadius.circular(radius),
     border: border
-        ? Border.all(color: AppColors.primaryFourElementText)
+        ? Border.all(color: borderColor)
         : Border.all(color: Colors.transparent),
     boxShadow: [
       BoxShadow(

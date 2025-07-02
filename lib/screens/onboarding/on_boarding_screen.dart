@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:learning_app/screens/onboarding/notifiers/on_boarding_notifier.dart';
 import 'package:learning_app/screens/onboarding/widget/introduction_outline.dart';
 
@@ -55,14 +56,14 @@ class OnBoardingScreen extends ConsumerWidget {
                 ],
               ),
               Positioned(
-                bottom: 200,
+                bottom: 200.h,
                 child: DotsIndicator(
                   position: index.toDouble(),
                   dotsCount: 3,
                   mainAxisAlignment: MainAxisAlignment.center,
                   decorator: DotsDecorator(
                     size: Size.square(9),
-                    activeSize: Size(20, 8),
+                    activeSize: Size(20.w, 8.h),
                     activeColor: AppColors.primaryElement,
                     activeShape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),

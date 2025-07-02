@@ -29,18 +29,20 @@ Widget subTextNormal(
   );
 }
 
-Widget sigIn14Text(
+Widget dynamicTextData(
   String textData, {
   Color color = AppColors.primaryThreeElementText,
   TextAlign textAlign = TextAlign.center,
   bool textUnderLine = false,
+  double? fontSize,
+  FontWeight? fontWeight,
 }) {
   return Text(
     textData,
     textAlign: textAlign,
     style: TextStyle(
-      fontSize: 14.sp,
-      fontWeight: FontWeight.bold,
+      fontSize: fontSize?.sp ?? 14.sp,
+      fontWeight: fontWeight ?? FontWeight.normal,
       color: color,
       decoration: textUnderLine
           ? TextDecoration.underline
