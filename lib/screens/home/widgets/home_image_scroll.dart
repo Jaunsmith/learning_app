@@ -6,19 +6,17 @@ class HomeImageScroll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: GridView.builder(
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: 20,
-          crossAxisSpacing: 20,
-        ),
-        itemCount: 6,
-        itemBuilder: (context, int index) {
-          return AppImageDesign();
-        },
+    return GridView.builder(
+      shrinkWrap: true,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 20,
       ),
+      itemCount: 6,
+      itemBuilder: (context, int index) {
+        return AppImageDesign();
+      },
     );
   }
 }
