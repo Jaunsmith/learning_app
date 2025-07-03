@@ -18,7 +18,7 @@ BoxDecoration decoration({
         : Border.all(color: Colors.transparent),
     boxShadow: [
       BoxShadow(
-        color: Colors.grey.withOpacity(0.1),
+        color: Colors.grey.shade100,
         offset: Offset(0, 1),
         blurRadius: blurR,
         spreadRadius: spreadR,

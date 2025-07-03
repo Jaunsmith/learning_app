@@ -24,13 +24,22 @@ Widget _loginButton(String imagePath) {
   );
 }
 
-Widget mailSignIn({
+Widget clickableButton({
   required String text,
   Color color = AppColors.primaryThreeElementText,
   bool textUnderLine = false,
+  VoidCallback? function,
+  double? fontSize,
+  TextAlign textAlign = TextAlign.start,
 }) {
   return TextButton(
-    onPressed: () {},
-    child: dynamicTextData(text, color: color, textUnderLine: textUnderLine),
+    onPressed: function,
+    child: dynamicTextData(
+      text,
+      color: color,
+      textUnderLine: textUnderLine,
+      fontSize: fontSize,
+      textAlign: textAlign,
+    ),
   );
 }

@@ -33,7 +33,7 @@ class IntroductionOutline extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 5.w),
           child: subTextNormal(subText),
         ),
-        SizedBox(height: 100),
+        SizedBox(height: 50.h),
         nextButton(index, pageController, context),
       ],
     );

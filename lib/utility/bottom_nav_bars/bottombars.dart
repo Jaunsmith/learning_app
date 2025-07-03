@@ -17,10 +17,10 @@ BottomNavigationBarItem bottomBars({
 Widget appScreens(int index) {
   List<Widget> screens = [
     HomeScreen(),
-    Container(child: Center(child: Text('2'))),
-    Container(child: Center(child: Text('3'))),
-    Container(child: Center(child: Text('4'))),
-    Container(child: Center(child: Text('5'))),
+    Center(child: Text('2')),
+    Center(child: Text('3')),
+    Center(child: Text('4')),
+    Center(child: Text('5')),
   ];
   return screens[index];
 }

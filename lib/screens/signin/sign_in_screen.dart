@@ -31,7 +31,6 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final signInRef = ref.watch(sigInNotifierProvider);
     var readData = ref.read(sigInNotifierProvider.notifier);
     final loader = ref.watch(appLoaderIconProvider);
     return Scaffold(
@@ -47,7 +46,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     children: [
                       loginOptions(),
                       Center(
-                        child: mailSignIn(text: 'or use your email to login'),
+                        child: clickableButton(
+                          text: 'or use your email to login',
+                        ),
                       ),
                       SizedBox(height: 40.h),
                       AppTextFieldData(
@@ -69,7 +70,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                         iconName: Icons.lock,
                         isPassword: true,
                       ),
-                      mailSignIn(
+                      clickableButton(
                         text: 'Forgot password?',
                         color: AppColors.primaryText,
                         textUnderLine: true,

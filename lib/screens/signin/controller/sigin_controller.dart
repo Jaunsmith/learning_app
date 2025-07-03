@@ -98,7 +98,9 @@ class SignInController {
           popUpNotification('E-mail already exit.');
           break;
         default:
-          print('Login failed: ${e.code} and  ${e.message}');
+          if (kDebugMode) {
+            print('Login failed: ${e.code} and  ${e.message}');
+          }
       }
     } catch (e) {
       if (kDebugMode) {

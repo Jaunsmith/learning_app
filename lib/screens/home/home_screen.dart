@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:learning_app/screens/home/controller/notifier/home_screen_notifier.dart';
+import 'package:learning_app/screens/home/widgets/home_image_scroll.dart';
 import 'package:learning_app/screens/home/widgets/home_screen_slider.dart';
+import 'package:learning_app/screens/home/widgets/home_widget.dart';
 import 'package:learning_app/utility/app_Colors.dart';
 import 'package:learning_app/widgets/general%20file/global_file.dart';
 import 'package:learning_app/widgets/search_bar.dart';
 import 'package:learning_app/widgets/text_data.dart';
-
-import '../../widgets/app_bar_data.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -30,13 +30,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarData('Home Page'),
+      backgroundColor: Colors.white,
+      appBar: homeAppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.w),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 10.h),
               Container(
                 child: dynamicTextData(
                   'Hello',
@@ -55,7 +57,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               SizedBox(height: 20.h),
               searchBar(context),
               SizedBox(height: 20.h),
-              banner(ref: ref, controller: _controller),
+              HomeScreenSliderBanner(ref: ref, controller: _controller),
+              SizedBox(height: 15.h),
+              AppMenuBar(),
+              SizedBox(height: 20.h),
+              // This is used to display data in grid that side by side  you can use Customerscrollview as well
+              HomeImageScroll(),
             ],
           ),
         ),

@@ -56,9 +56,17 @@ class OnBoardingScreen extends ConsumerWidget {
                 ],
               ),
               Positioned(
-                bottom: 200.h,
+                bottom: 50.h,
                 child: DotsIndicator(
                   position: index.toDouble(),
+                  onTap: (val) {
+                    widgetRef.read(indexDotProvider.notifier).updateIndex(val);
+                    _pageController.animateToPage(
+                      val,
+                      duration: Duration(microseconds: 300),
+                      curve: Curves.bounceIn,
+                    );
+                  },
                   dotsCount: 3,
                   mainAxisAlignment: MainAxisAlignment.center,
                   decorator: DotsDecorator(

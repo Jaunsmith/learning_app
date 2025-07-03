@@ -1,4 +1,4 @@
-library entities;
+library;
 
 export 'user.dart';
 
